@@ -1,6 +1,6 @@
 # Cowadar
 
-![Cowadar Logo](../assets/images/site/cowadar_light.svg)
+![Cowadar Logo](../_assets/images/site/cowadar_light.svg)
 
 ## Betekenis Cowadar
 
