@@ -26,7 +26,7 @@ Voor Linux heb je minimaal nodig:
 
 ## Fivem self-hosting
 
-Om Fivem uit te rollen met [Docker](../docker/docker.md), moet je eerst [Docker](../docker/docker.md#installation) installeren op je Linux machine. Daarna kun je de volgende stappen volgen:
+Om Fivem uit te rollen met [Docker](../container/docker/docker.md), moet je eerst [Docker](../container/docker/docker.md#installation) installeren op je Linux machine. Daarna kun je de volgende stappen volgen:
 
 1. Maak een map aan voor je serverbestanden, bijvoorbeeld `~/fivem`.
 2. Download het `server-data` repository van GitHub naar je map:

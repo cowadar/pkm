@@ -1,4 +1,4 @@
-# Docker-Compose
+# Docker-compose
 
 Docker-compose is een software die wordt gebruikt om multi-container Docker applicaties te definiëren en uit te voeren. Het kan meerdere containers tegelijkertijd afhandelen in de productie-, staging-, ontwikkelings-, test- en CI-omgeving. Gebruik daarom docker-compose om de hele softwareontwikkelingscyclus (SDLC) te beheren.
 

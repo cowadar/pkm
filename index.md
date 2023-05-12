@@ -3,7 +3,7 @@ layout: landing
 hide:
   - navigation
   - toc
-title: Home
+title: 🏠 Home
 ---
 # Personal Knowledge Management
 
