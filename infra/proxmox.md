@@ -501,3 +501,7 @@ More examples and tutorials regarding Proxmox can be found in the link list belo
 
 - Ansible playbook that automates Linux VM updates running on Proxmox (including snapshots): [TheDatabaseMe - update_proxmox_vm](https://github.com/thedatabaseme/update_proxmox_vm)
 - Manage Proxmox VM templates with Packer: [Use Packer to build Proxmox images](https://thedatabaseme.de/2022/10/16/what-a-golden-boy-use-packer-to-build-proxmox-images/)
+
+## Plex on Proxmox
+
+Bekijk deze [note](../misc/plex_proxmox.md) voor meer informatie om Plex via LXC te installeren op Proxmox
