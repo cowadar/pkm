@@ -135,3 +135,396 @@ git submodule update --init --recursive
 -   Remember that collaborators won’t automatically see updates to submodules—if you update a submodule, you may need to remind your colleagues to run `git submodule update` or they will likely see odd behavior.
 -   Managing dynamic, rapidly evolving or heavily co-dependent repositories with submodules can quickly become frustrating. This post was focused on simple, relatively static parent-child repository relationships. A future follow-up post will detail some strategies to help manage more complex submodule workflows.
 
+# Git Submodule Guide & Basic Commands to Get Started
+
+!!! warning
+    update this!
+
+
+Introduction
+
+When developing an application using [Git](https://phoenixnap.com/kb/what-is-git), it is practical to integrate code available in other [repositories](https://phoenixnap.com/kb/what-is-a-git-repository). Reusing the code shortens development time and conserves resources.
+
+Copying repository contents directly into the project is an adequate solution in some scenarios. However, merging customizations with future upstream changes can be challenging. Submodules are a Git feature designed to address this issue.
+
+**This guide will show you how to work with Git submodules and provide a list of the most frequently used commands and their options.**
+
+![Git submodule guide and basic commands to get started.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/git-submodule-guide-basic-commands-to-get-started.png)
+
+Prerequisites
+
+-   Git installed (refer to our installation tutorials for [Windows](https://phoenixnap.com/kb/how-to-install-git-windows), [macOS](https://phoenixnap.com/kb/install-git-on-mac), [CentOS 7](https://phoenixnap.com/kb/how-to-install-git-on-centos-7), [CentOS 8](https://phoenixnap.com/kb/how-to-install-git-centos-8), and [Ubuntu](https://phoenixnap.com/kb/how-to-install-git-on-ubuntu)).
+-   [GitHub account](https://phoenixnap.com/kb/how-to-use-git#ftoc-heading-3) or access to another Git repository hosting service.
+
+## What is Git Submodule?
+
+A Git submodule is a feature that allows the integration of multiple independent repositories into a single project. A submodule acts as [a subdirectory](https://phoenixnap.com/glossary/what-is-a-subdirectory) within the main project directory, but the [code](https://phoenixnap.com/glossary/line-of-code-loc) it contains does not have to be copied directly into the project.
+
+Instead, Git creates a reference to the submodule's repository and places it inside the main project's repository. The image below shows a submodule in a repository hosted on GitHub.
+
+![An example repository in GitHub, containing a directory and a submodule.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/submodule-directory-in-repository-github.png)
+
+## Why Use Git Submodules?
+
+Git submodules are helpful when working with complex projects. For example, developers of [microservice-based](https://phoenixnap.com/kb/introduction-to-microservices-architecture) apps can design and update each microservice separately to preserve independent change histories.
+
+Another benefit is that multiple projects can share the code maintained in a single repository. This way, developers ensure consistency between various products using the same feature.
+
+The Git command-line interface has a dedicated subcommand for manipulating submodules. Use **`git submodule`** to create, update, and manage submodules.
+
+The sections below list the most common **`git submodule`** commands and their options.
+
+### git submodule add
+
+Add a submodule to your main repository using the [git submodule add command](https://phoenixnap.com/kb/git-add-remove-update-submodule).
+
+To do so:
+
+1\. Go to the main directory of your project:
+
+```
+cd [main-project-directory]
+```
+
+2\. Provide the URL of the submodule's origin repository to the **`add`** command:
+
+```
+git submodule add [submodule-repository-url]
+```
+
+The output shows Git cloning the repository into the project's subdirectory.
+
+![Adding a Git submodule.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-submodule-add-submodule-guide.png)
+
+To specify the path and name of the directory containing the submodule, add the **`path`** argument to the command:
+
+```
+git submodule add [submodule-repository-url] [path]
+```
+
+The following example clones the repository **`new-submodule`** into the **`submodules/example`** path:
+
+```
+git submodule add https://github.com/marko-pnap/new-submodule.git submodules/example
+```
+
+If you do not specify a path, Git defaults to the repository name.
+
+**Note**: Use the **`-b`** option to specify a non-default branch for the submodule.
+
+### git submodule init
+
+When cloning the repositories that contain submodules, you must initialize the submodules with the **`<a href="https://phoenixnap.com/kb/git-submodule-init" target="_blank" rel="noreferrer noopener">git submodule init</a>`** command:
+
+```
+git submodule init
+```
+
+The command registers the paths to submodules within the project tree.
+
+![Initializing a submodule in Git.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-submodule-init-submodule-guide-pnap.png)
+
+To initialize a specific submodule, add its path to the command:
+
+```
+git submodule init [path]
+```
+
+### git submodule update
+
+Update the state of the submodules in the project with the following command:
+
+```
+git submodule update
+```
+
+The command clones the missing submodules, fetches any new remote commits, and updates the directory tree.
+
+![Updating a submodule in Git.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-submodule-update-submodule-guide.png)
+
+Adding the **`--init`** flag to the command eliminates the need to run **`git submodule init`**. The **`--recursive`** option tells Git to check the submodules for nested submodules and update them as well.
+
+### git submodule status
+
+Check the status of the submodules by typing:
+
+```
+git submodule status
+```
+
+The command prints out the SHA-1 and the path of each submodule.
+
+![Checking the status of the submodules in Git.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-submodule-status-submodule-guide.png)
+
+The SHA-1 string can have three different prefixes.
+
+-   The **\-** prefix marks an uninitialized submodule.
+-   The **`+`** sign shows that the checked-out submodule commit differs from the state of the original submodule repository.
+-   The **`U`** prefix alerts to merge conflicts.
+
+**Note**: No prefix means that the submodule is initialized, synchronized with the origin, and has no conflicts.
+
+Use the **`--recursive`** option to include nested submodules in the status report.
+
+### git submodule foreach
+
+The **`git submodule foreach`** command allows executing a command on each submodule. Use the following syntax:
+
+```
+git submodule foreach '[command]'
+```
+
+For example, to perform [the fetch action](https://phoenixnap.com/kb/git-fetch) on each submodule, type:
+
+```
+git submodule foreach 'git fetch'
+```
+
+The example output shows Git checking submodules and fetching new data for the **test-submodule**.
+
+![Performing the git fetch command on all submodules using the git submodule foreach command.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-submodule-foreach-submodule-guide.png)
+
+### git submodule deinit
+
+Unregister a submodule by typing the following command:
+
+```
+git submodule deinit [path]
+```
+
+Git removes the content of the submodule directory and deletes the section of the **`.git/config`** file relevant to the submodule.
+
+![De-registering a submodule in Git.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-submodule-deinit-submodule-guide.png)
+
+De-initialize a submodule containing local modifications by adding the **`--force`** option:
+
+```
+git submodule deinit [path] --force
+```
+
+## Working with Git Submodules
+
+In projects that utilize submodules, the workflow must include submodule management. The sections below deal with the most common submodule operations, such as:
+
+-   Creating submodules from subdirectories.
+-   Pulling changes from submodule and project remotes.
+-   Merging and publishing submodule changes.
+-   Using aliases.
+
+### Joining a Project Using Submodules
+
+If a project contains submodules, follow the steps below to obtain a full local copy:
+
+1\. Clone the repository:
+
+```
+git clone [repository]
+```
+
+The output of the **`git clone`** command confirms the successful cloning.
+
+![Cloning a repository containing submodules.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-clone-submodule-guide.png)
+
+The directory with the cloned repository contains all the files and subdirectories of the original repository. However, the submodule directories are created empty and uninitialized.
+
+2\. Initialize the submodules and clone their contents by typing:
+
+```
+git submodule update --init --recursive
+```
+
+Git registers the submodules, clones the related files, and checks out the path of each submodule.
+
+![Updating submodules in a project.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-submodule-update-init-recursive-submodule-guide.png)
+
+Alternatively, perform all the above actions using a single command by adding the **`--recursive`** flag to **`git clone`**.
+
+```
+git clone --recursive [repository-url]
+```
+
+### Switching From Subdirectories to Submodules
+
+If you start using submodules in a project that is already in progress, subdirectories containing the relevant code need to be turned into submodules. The simplest way to perform this switch is using the procedure below.
+
+1\. Recursively copy the contents of the entire project directory to a new location:
+
+```
+cp -r [existing-directory] [new-directory]
+```
+
+2\. Go to the new directory and execute the **`git filter-branch`** command. Use the **`--subdirectory-filter`** option and provide the name of the subdirectory containing files for the new submodule.
+
+```
+git filter-branch --subdirectory-filter [subdirectory] -- --all
+```
+
+The example below uses **`git filter-branch`** to remove everything except the contents of the **test-dir** directory.
+
+![The git filter-branch command output.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-filter-branch-subdirectory-filter-submodule-guide.png)
+
+3\. Create an empty repository to store the new submodule and copy the URL. If you use GitHub, read [how to create a new repository on GitHub](https://phoenixnap.com/kb/how-to-use-git#ftoc-heading-5).
+
+4\. On the local system, set the new remote origin for the submodule repository:
+
+```
+git remote set-url origin [submodule-repository-url]
+```
+
+5\. Push the changes to remote.
+
+```
+git push
+```
+
+The contents of the submodule directory are uploaded to the repository you created.
+
+![Pushing the directory contents to a new repository.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-push-submodule-guide.png)
+
+6\. Return to the main project's directory and remove the subdirectory containing the code that now belongs to the new submodule.
+
+```
+git rm -r [subdirectory]
+```
+
+7\. Commit the changes with:
+
+```
+git commit -m "[message]"
+```
+
+8\. Push the changes to remote.
+
+```
+git push
+```
+
+9\. Use the **`git submodule add`** command to add the submodule to the project.
+
+```
+git submodule add [new-repository]
+```
+
+### Pulling Changes From the Submodule Remote
+
+A frequent usage scenario for submodules is utilizing their code without changing it locally. In this case, updating submodules with new content from their remote origin is performed with the following command:
+
+```
+git submodule update --recursive --remote
+```
+
+The output shows the submodule's remote origin and confirms the successful update.
+
+![Updating submodules using the remote flag.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-submodule-update-recursive-remote-submodule-guide.png)
+
+### Pulling Changes from the Project Remote
+
+If a submodule is changed as a part of the superproject's commit, pull the changes by following the procedure below:
+
+1\. Execute **`git pull`**:
+
+```
+git pull [remote-repository] [branch-name]
+```
+
+2\. Update the submodules.
+
+```
+git submodule update --init --recursive
+```
+
+The **`--init`** flag in the command above is important in case new submodules have been created in the remote commit.
+
+### Publishing Submodule Changes
+
+Changes made on a submodule locally are published similarly to any other repository changes in Git. The only difference is that the command execution takes place in the submodule directory.
+
+To publish the changes:
+
+1\. Go to the directory containing the submodule.
+
+```
+cd [submodule-path]
+```
+
+2\. Use **`git add`** to choose which files to commit.
+
+```
+git add [filename]
+```
+
+3\. Commit the changes.
+
+```
+git commit -m "[message]"
+```
+
+4\. Push the changes to remote.
+
+```
+git push
+```
+
+### Merging Submodule Changes
+
+To merge upstream changes to submodules with the local versions, type:
+
+```
+git submodule update --remote --merge
+```
+
+![Merging submodule changes using the merge flag.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-submodule-update-remote-merge-submodule-guide.png)
+
+To merge the main project's gitlink changes into the submodules, type:
+
+```
+git submodule update --merge
+```
+
+### Using Aliases
+
+Most of the commands related to submodule management in Git are long. To simplify frequently performed actions, create aliases for the commonly used commands.
+
+The syntax for creating an alias is as follows:
+
+```
+git config --global alias.[new-alias] '[original-command]'
+```
+
+For example, to create the **`sub-update`** alias which replaces the **`submodule update --recursive --remote`** command, type:
+
+```
+git config --global alias.sub-update 'submodule update --recursive --remote'
+```
+
+Test the new command alias on your system:
+
+```
+git sub-update
+```
+
+The output of the alias is the same as the output of the original command.
+
+![Using a Git alias to replace the submodule update command.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-sub-update-alias-submodule-guide.png)
+
+### Submodules and Branch Switching
+
+Switching to a new submodule branch in Git is performed using the [git checkout command](https://phoenixnap.com/kb/git-checkout-tag). Execute it from the submodule directory, adding the name of the branch you want to switch to:
+
+```
+git checkout [branch]
+```
+
+The output confirms that the new branch is checked out.
+
+![Switching branches in submodules using the git checkout command.](https://phoenixnap.com/kb/wp-content/uploads/2022/08/output-from-git-checkout-stable-submodule-guide.png)
+
+If you are checking out a new branch for the entire project, add the **`--recurse-submodules`** flag to properly transfer the state of submodules.
+
+**Note**: With older Git versions that do not support the **`--recurse-submodules`** option, use the **`git submodule update --init --recursive`** command to restore the state of submodules after the checkout.
+
+Conclusion
+
+This guide aimed to provide a simple overview of Git submodules, focusing on the most frequently used commands and workflows.
+
+If you need a comprehensive general introduction to Git, read our [beginner's guide to Git](https://phoenixnap.com/kb/how-to-use-git).

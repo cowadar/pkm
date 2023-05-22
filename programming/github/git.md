@@ -48,3 +48,8 @@ De algemene syntax voor het commando is: `git init [<opties>] [<directory>]`. En
 - `-separate-git-dir=<git-dir>` om een tekstbestand te maken in plaats van een directory voor de .git directory van de repository. Dit bestand bevat het pad naar de eigenlijke repository en fungeert als een bestandssysteemonafhankelijke git symbolische link naar de repository.
 - `-b <branch-name>` of `--initial-branch=<branch-name>` om de naam op te geven voor de initiële branch in de nieuwe repository. Als dit niet wordt opgegeven, wordt de standaardnaam gebruikt (momenteel master, maar dit kan in de toekomst veranderen; de naam kan worden aangepast via de init.defaultBranch configuratievariabele).
 - `-shared [= (false|true|umask|group|all|world|everybody|<perm>)]` om aan te geven dat de git repository moet worden gedeeld tussen meerdere gebruikers. Dit maakt het mogelijk dat gebruikers die tot dezelfde groep behoren naar die repository kunnen pushen. Wanneer dit wordt opgegeven, wordt de configuratievariabele “core.sharedRepository” ingesteld zodat bestanden en directories onder $GIT_DIR worden aangemaakt met de gevraagde permissies.
+
+## Usefull links
+
+- [OpenCommit](https://github.com/marketplace/actions/opencommit-improve-commits-with-ai): Auto-generate meaningful commits in 1 second
+- [Gitmoji](https://github.com/carloscuesta/gitmoji): Gitmoji is an initiative to standardize and explain the use of emojis on GitHub commit messages.
