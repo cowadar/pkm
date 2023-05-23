@@ -14,6 +14,10 @@ Dit is een verzameling van "Awesome List" repo's
 
 - [Awesome Home Assistant](https://www.awesome-ha.com/)
 
+## Selfhosting
+
+- [Most used self-hosted services in 2022](https://selfhosted-services-2022.deployn.de/)
+
 ## Gaming
 
 ### Fivem
