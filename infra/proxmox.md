@@ -505,3 +505,7 @@ More examples and tutorials regarding Proxmox can be found in the link list belo
 ## Plex on Proxmox
 
 Bekijk deze [note](../misc/plex_proxmox.md) voor meer informatie om Plex via LXC te installeren op Proxmox
+
+## Post-installatie script
+
+[script](https://github.com/extremeshok/xshok-proxmox)
