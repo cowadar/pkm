@@ -7,7 +7,7 @@ title: 🏠 Home
 ---
 # Personal Knowledge Management
 
-![Cowadar Logo](./_assets/images/site/cowadar_light.svg)
+![Cowadar Logo](./_assets/images/site/logo_without_background_white.png)
 
 ## Waarom een PKM?
 
