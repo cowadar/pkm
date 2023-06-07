@@ -15,11 +15,11 @@ In deze video bespreken we branchebescherming en het belang ervan bij het handha
 
 After selecting the desired branch, a range of options is presented for configuration. The speaker suggests the following practices and encourages viewers to share their preferences in the comments:
 
-1. **Require a Pull Request Before Merging**: This option ensures that commits made to unprotected branches, such as feature- or bug-specific branches, go through a pull request process before merging into the main branch. The speaker recommends enabling this option and discusses the importance of having multiple approvals for significant changes.
+1. **Require a pull request before merging** ✅: This option ensures that commits made to unprotected branches, such as feature- or bug-specific branches, go through a pull request process before merging into the main branch. The speaker recommends enabling this option and discusses the importance of having multiple approvals for significant changes.
 
-2. **Number of Approvals**: Users can specify the minimum number of approvals required for merging a pull request. Depending on the situation, it can be set to one or more, striking a balance between efficiency and thoroughness.
+2. **Require approvals** ✅ (1): Users can specify the minimum number of approvals required for merging a pull request. Depending on the situation, it can be set to one or more, striking a balance between efficiency and thoroughness.
 
-3. **Dismiss Stale Approvals**: This crucial setting automatically dismisses previous approvals when new commits are added to a pull request. By enabling this option, contributors cannot merge additional commits without the newly added code being reviewed.
+3. **Dismiss Stale Approvals** ✅: This crucial setting automatically dismisses previous approvals when new commits are added to a pull request. By enabling this option, contributors cannot merge additional commits without the newly added code being reviewed.
 
 4. **Check Status of GitHub Actions**: It is advised to ensure that all status checks, including GitHub Actions, pass successfully before merging. Failing checks indicate unresolved issues that need to be fixed before merging.
 
