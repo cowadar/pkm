@@ -19,24 +19,23 @@
 
 ![Contributors](https://img.shields.io/github/contributors/cowadar/pkm?color=dark-green) ![Issues](https://img.shields.io/github/issues/cowadar/pkm) ![License](https://img.shields.io/github/license/cowadar/pkm) ![GitHub last commit](https://img.shields.io/github/last-commit/cowadar/pkm?color=dark-green)
 
-## Table Of Contents
+## Inhoudsopgave
 
 - [Cowadar Personal Knowledge Management](#cowadar-personal-knowledge-management)
-  - [Table Of Contents](#table-of-contents)
-  - [About The Project](#about-the-project)
-  - [Built With](#built-with)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-  - [Usage](#usage)
+  - [Inhoudsopgave](#inhoudsopgave)
+  - [Over Cowadar](#over-cowadar)
+  - [Gemaakt met](#gemaakt-met)
+  - [Aan de slag](#aan-de-slag)
+    - [Vereisten](#vereisten)
+    - [Installatie](#installatie)
+  - [Gebruik](#gebruik)
   - [Roadmap](#roadmap)
   - [Contributing](#contributing)
     - [Creating A Pull Request](#creating-a-pull-request)
   - [License](#license)
   - [Authors](#authors)
-  - [Acknowledgements](#acknowledgements)
 
-## About The Project
+## Over Cowadar
 
 ![Screen Shot](_assets/images/site/supershot.png)
 
@@ -49,13 +48,12 @@ Uiteraard is een chat niet overzichtelijk en moeten we toch vaak beroep doen op 
 
 Daarom heeft Bedar voorgesteld om te werken met mkdocs.
 
-## Built With
+## Gemaakt met
 
-built with <3
-
+* ♥️
 * [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 
-## Getting Started
+## Aan de slag
 
 Onze website bestaat uit 2 repositories:
 
@@ -66,7 +64,7 @@ Volg deze eenvoudige stappen om een lokale kopie aan de gang te krijgen.
 
 
 
-### Prerequisites
+### Vereisten
 
 Zorg voor je begint dat je deze packages hebt geinstalleerd:
 
@@ -80,7 +78,7 @@ sudo apt install git
 sudo apt install -y python3-pip
 ```
 
-### Installation
+### Installatie
 
 1. Clone de repo
 
@@ -99,7 +97,7 @@ cd cowadar
 pip install -r requirements
 ```
 
-## Usage
+## Gebruik
 
 MkDocs bevat een live preview-server, zodat u uw wijzigingen kunt bekijken terwijl u uw documentatie schrijft. De server zal de site na het opslaan automatisch opnieuw opbouwen. Begin het met:
 
@@ -141,9 +139,3 @@ Distributed under the MIT License. See [LICENSE](https://github.com/cowadar/pkm/
 
 * **Bedar** - *Homelab freak* - [Bedar](https://github.com/bedar89/) - *Repo & website maintainer*
 * **Cowarol** - *Netwerk zot* - [Cowarol](https://github.com/cowarol/) - *Schrijver*
-
-## Acknowledgements
-
-* []()
-* []()
-* []()
