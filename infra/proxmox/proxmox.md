@@ -10,6 +10,86 @@ Je kunt Proxmox software downloaden van hun [website](https://pve.proxmox.com).
 
 ![logo](https://upload.wikimedia.org/wikipedia/commons/f/f6/Proxmox-VE-4-4-screenshot-startpage.png)
 
+## Installatie van Proxmox VE
+Volg de stappen hieronder om Proxmox VE te installeren op een fysieke of dedicated server.
+
+### Stap 1: Download het Proxmox ISO-bestand
+De eerste stap is om het Proxmox VE ISO-bestand te downloaden.
+
+- Ga naar de officiële Proxmox Downloads pagina en selecteer **Proxmox Virtual Environment**.
+- Dit brengt je naar het Proxmox Virtual Environment Archive dat ISO-bestanden en officiële documentatie opslaat. Selecteer **ISO Images** om verder te gaan.
+- Op het moment van schrijven is de nieuwste versie van de Proxmox VE ISO Installer 7.1. Als er een nieuwere versie beschikbaar is, staat deze bovenaan. Klik op **Download** en sla het bestand op.
+
+### Stap 2: Bereid het installatiemedium voor
+Kopieer het Proxmox ISO-bestand op een CD/DVD of een USB-stick.
+
+- Hoewel beide opties mogelijk zijn, wordt aangenomen dat de meeste systemen geen optische drive hebben.
+- Steek de USB-stick in en kopieer het ISO-bestand naar de USB-stick met behulp van de opdrachtregel of een USB-formatteringstool (zoals Etcher of Rufus).
+
+!!! alert
+    Let op: Zorg ervoor dat je USB-stick minstens 1 GB aan opslagruimte heeft. Maak ook een back-up van en verwijder alle gegevens op het apparaat, want het proces zal alle eerder opgeslagen gegevens wissen.
+
+Als je op Linux werkt, is de snelste manier om een opstartbare USB te maken, de volgende opdracht uit te voeren:
+
+```sh
+dd bs=1M conv=fdatasync if=./proxmox-ve_*.iso of=/device/name
+```
+
+Pas indien nodig de bestandsnaam en het pad aan in `if=./proxmox-ve_*.iso` en zorg ervoor dat je de juiste apparaatnaam opgeeft in `of=/device/name`.
+
+Om de naam van je USB-stick te vinden, voer je de volgende opdracht uit voor en na het inpluggen van het apparaat:
+
+```sh
+lsblk
+```
+
+Vergelijk de uitvoer. De extra vermelding in de tweede uitvoer is de naam van het apparaat.
+
+### Stap 3: Start de Proxmox Installer
+- Ga naar de server (machine) waarop je Proxmox wilt installeren en steek de USB-stick in.
+- Terwijl de server opstart, ga je naar het opstartmenu door op de vereiste toets(en) te drukken. Meestal zijn dit Esc, F2, F10, F11 of F12.
+- Selecteer het installatiemedium met het Proxmox ISO-bestand en start ervan op.
+- Vervolgens verschijnt het Proxmox VE-menu. Selecteer **Install Proxmox VE** om de standaardinstallatie te starten.
+
+### Stap 4: Voer Proxmox uit
+- Volg de instructies op het scherm om Proxmox te installeren. Je moet onder andere akkoord gaan met de licentieovereenkomst, een doelschijf selecteren, een land en tijdzone kiezen, een wachtwoord instellen en een netwerkconfiguratie invoeren.
+- Na het voltooien van de installatie wordt je gevraagd om de server opnieuw op te starten. Verwijder het installatiemedium en klik op **Reboot**.
+- Zodra de server is herstart, zie je een scherm met informatie over hoe je toegang kunt krijgen tot Proxmox via een webconsole of een commandoregel.
+
+### Stap 5: Maak een VM
+- Om toegang te krijgen tot Proxmox via een webconsole, open je een browser en ga je naar het adres dat wordt weergegeven op het scherm, bijvoorbeeld `https://192.168.1.100:8006`. Je moet een beveiligingswaarschuwing accepteren om door te gaan.
+- Log in met de gebruikersnaam root en het wachtwoord dat je tijdens de installatie hebt ingesteld.
+- Je ziet nu het Proxmox-dashboard, waar je virtuele machines en containers kunt maken en beheren.
+- Om een nieuwe VM te maken, klik je op **Create VM** in de rechterbovenhoek. Volg de wizard om de VM te configureren met de gewenste opties, zoals naam, besturingssysteem, schijf, netwerk, enz.
+- Nadat je de VM hebt gemaakt, kun je deze starten, stoppen, klonen, verwijderen of wijzigen met behulp van de knoppen in het paneel.
+
+## Configuratie van Proxmox VE
+Hier zijn enkele veelvoorkomende taken die je kunt uitvoeren om Proxmox VE naar wens te configureren.
+
+### Start de VM bij het opstarten
+- Als je wilt dat een VM automatisch wordt gestart wanneer de host wordt opgestart, kun je dit inschakelen in de instellingen van de VM.
+- Selecteer de VM in het linkerpaneel en klik op **Options**. Klik vervolgens op **Start at boot** en selecteer **Yes** in het vervolgkeuzemenu.
+
+### Vergroot/verklein de virtuele schijfgrootte
+- Als je de grootte van de virtuele schijf van een VM wilt wijzigen, moet je eerst de VM uitschakelen.
+- Selecteer de VM in het linkerpaneel en klik op **Hardware**. Klik vervolgens op **Hard Disk** en klik op **Resize disk** in het menu.
+- Voer de nieuwe grootte in die je wilt toewijzen aan de schijf en klik op **Resize**.
+
+!!! note
+    Let op: je kunt de schijf alleen vergroten, niet verkleinen.
+
+### Schakel NAT-netwerkmodus in
+- Als je wilt dat je VM’s verbinding kunnen maken met internet via een gedeeld IP-adres van de host, kun je NAT-netwerkmodus inschakelen.
+- Selecteer de host in het linkerpaneel en klik op **System**. Klik vervolgens op **Network** en klik op **Create** in het menu.
+- Selecteer **Linux Bridge** als type en voer een naam in voor de brug, bijvoorbeeld `vmbr1`. Schakel het selectievakje **NAT** in en klik op **Create**.
+- Selecteer nu een VM die je wilt verbinden met internet via NAT en klik op **Hardware**. Klik vervolgens op **Network Device** en klik op **Edit** in het menu.
+- Selecteer `vmbr1` als brug en klik op **OK**. Herhaal dit voor elke VM die je wilt verbinden met internet via NAT.
+
+## Links
+- [Proxmox VE Documentation](https://pve.proxmox.com/pve-docs/)
+- [Install Proxmox VE {Step-by-Step Guide} - phoenixNAP](https://phoenixnap.com/kb/install-proxmox)
+- [Installation - Proxmox VE](https://pve.proxmox.com/wiki/Installation)
+
 ## VM Beheer
 
 ### Basic
