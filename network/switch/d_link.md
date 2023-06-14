@@ -18,7 +18,14 @@ Het standaard wachtwoord is `admin`.
 
 #### Change management IP en VLAN
 
-!!! In Progress !!!
+Meld aan op de switch met bovenstaande stappen. Als dat gelukt is geef je de switch zelf een static ip in de range van je computer.
+
+!!! note
+    Als je een met trunks werkt zal dit het ip zijn van je native vlan.
+
+!!! warning
+    Dit is mij nog niet gelukt op een vlan ID (Management Vlan).
+    Hier op mijn Cisco switch staan mijn native vlan op mijn management. Op de D-link heb ik mijn poorten op access/trunk poorten staan met native mijn computer network.
 
 #### 802.1Q
 
