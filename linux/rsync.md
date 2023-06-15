@@ -13,3 +13,11 @@ Hier is een voorbeeld van een aangepaste rsync-opdracht:
 ```bash
 rsync -avhW --delete --exclude='.git/' bedar@10.10.10.67:/home/bedar/fivem/havenstad/resources ./resources
 ```
+
+## Backup maken van folder met include en exclude
+
+```sh
+rsync -av --progress --include= {'.ssh/','.vscode/','.zsh/','.gitconfig/','.zshrc/'} --exclude='.*/' bronmap /doelmap
+```
+
+De optie `--include` laat je toe om specifieke mappen op te geven die je wilt kopiëren, terwijl de optie `--exclude` alle andere verborgen mappen uitsluit.
