@@ -17,6 +17,7 @@ Dit is een verzameling van "Awesome List" repo's
 ## Selfhosting
 
 - [Most used self-hosted services in 2022](https://selfhosted-services-2022.deployn.de/)
+- [selfh.st/releases](https://selfh.st/releases/)
 
 ## Gaming
 
