@@ -37,7 +37,7 @@ Installeer `gnome-tweaks` met `sudo apt install gnome-tweaks`
 
 ### Aanpassingen
 
-Ga naar de `Appearance` tab en verander het volgende:
+Open `gnome-tweaks` en ga naar de `Appearance` tab en verander het volgende:
 
 - Applications: `Dracula`
 - Shell: `Dracula`
