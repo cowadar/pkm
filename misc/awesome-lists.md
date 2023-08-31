@@ -2,6 +2,9 @@
 
 Dit is een verzameling van "Awesome List" repo's
 
+## Linux
+- [Awesome Shell](https://github.com/alebcay/awesome-shell)
+
 ## Netwerk
 
 - [Awesome Networking](https://github.com/nyquist/awesome-networking)
