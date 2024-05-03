@@ -4,6 +4,7 @@
 
 !!! Warning
 -----
+**IPSEC-Tunnel word niet gezien als LAN (IN)**
 Bekijk dit vanop firewall niveau. Je stuurt iets in of uit de firewall op die interface (Default gateway).
 **LAN In** Applies to IPv4 traffic that enters the LAN (ingress), destined for other networks (default accept).
 **LAN Out** Applies to IPv4 traffic that exists the LAN (egress), destined for this network (default accept).
